@@ -26,3 +26,40 @@ def bubble(a_list):
 
 bubble(my_list)
 print(my_list)
+
+#James' code for test
+
+# The challenge here is to create a bubble search in python
+# without using the any sort functions
+
+listy_list = [1, 3, 2, 5, 4, 9, 7, 6, 10]
+
+
+# Creating function for list sorting
+def sort_list(new_list):
+    # Setting up loop for for sorting list
+    listlen = len(new_list) - 1
+    # Using for loop for iterating through the list
+    for i in range(listlen):
+        if new_list[i] > new_list[i+1]:
+                #variable used to insert i into higher part of list
+                new_option = i + 1
+                old_slot = new_list.pop(i)
+                new_list.insert(new_option, old_slot)
+                #While loop used to make sure no previous numbers are greater then new number in place
+                #If it is, it will make i lower by 1 in the list and continue this until the loop breaks
+                while True:
+                    lower = i - 1
+                    if new_list[lower] > new_list[i]:
+                        outorder = new_list.pop(i)
+                        new_list.insert(lower, outorder)
+                        continue
+                    else:
+                        break
+
+
+
+
+
+sort_list(listy_list)
+print(listy_list)
